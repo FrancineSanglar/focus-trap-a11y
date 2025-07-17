@@ -1,11 +1,14 @@
 {
-  "name": "tab-trap",
+  "name": "focus-trap-a11y",
   "private": false,
   "version": "1.0.0",
+  "author": "Francine S",
+  "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  
   "files": [
     "dist"
   ],
