@@ -1,30 +1,46 @@
-# TabTrap
+# `<focus-trap>` – Accessible Web Component
 
-Web Component para trap de foco com teclado (Tab).
+`<focus-trap>` is a Web Component designed with **accessibility** in mind. It traps keyboard focus within a modal or container, ensuring a safe navigation experience for both **keyboard users (Tab, Shift+Tab)** and **screen reader users (Arrow keys)**.
 
-## Uso
+Perfect for modals, dialogs, or any interactive area requiring strict focus control.
+
+---
+
+## 🧠 Features
+
+- 🔒 Traps **tab navigation** (`Tab`, `Shift+Tab`) inside the component
+- 🗺️ Traps **screen reader navigation** using **arrow keys** (`ArrowLeft`, `ArrowRight`, `ArrowUp`, `ArrowDown`)
+
+## Using
 
 ```html
-<script type="module" src="dist/index.js"></script>
-<tab-trap>
-  <button>Botão 1</button>
-  <input type="text" placeholder="Campo" />
-  <button>Botão 2</button>
-</tab-trap>
+<script type="module" src="/node_modules/focus-trap-a11y/dist/index.js"></script>
+<focus-trap>
+  <div id="modal-container" class="modal-container">
+    <h2>Example Modal</h2>
+    <p>Modal is Open</p>
+    <input type="text" placeholder="Your name" />
+    <button>Save</button>
+    <button id="close-modal" onclick="closeModal()">Close</button>
+  </div>
+</focus-trap>
 ```
 
-## Instalação
+## Installation
 
 ```sh
 npm install tab-trap
 ```
 
-## Importação
+## Import
 
 ```js
+
 import 'tab-trap/dist/index.js';
+
+or 
+
+import { FocusTrap } from 'focus-trap-a11y';
+
 ```
 
-## Publicação
-
-Apenas os arquivos de build (`dist/index.js`) e tipos (`dist/index.d.ts`, se gerado) devem ser publicados no npm.
