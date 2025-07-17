@@ -1,0 +1,63 @@
+<head>
+  <script type="module" src="../dist/index.js"></script>
+</head>
+<body>
+<button id="open-modal" onclick="openModal()">Open Modal</button>
+
+<div id="modal-backdrop" class="modal-backdrop" onclick="closeModal()"></div>
+
+<focus-trap>
+  <div id="modal-container" class="modal-container">
+    <h2>Example Modal</h2>
+    <p>Modal is Open</p>
+    <input type="text" placeholder="Your name" />
+    <button>Save</button>
+    <button id="close-modal" onclick="closeModal()">Close</button>
+  </div>
+</focus-trap>
+
+<style>
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+    display: none;
+  }
+  .modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    z-index: 11;
+    min-width: 300px;
+    display: none;
+  }
+  .is-open {
+    display: block !important;
+  }
+ </style>
+<script>
+  const openModal = () => {
+    const modal = document.getElementById('modal-container');
+    const backdrop = document.getElementById('modal-backdrop');
+    modal.classList.add('is-open');
+    backdrop.classList.add('is-open');
+  };
+  const closeModal = () => {
+    const modal = document.getElementById('modal-container');
+    const backdrop = document.getElementById('modal-backdrop');
+    const openBtn = document.getElementById('open-modal');
+    modal.classList.remove('is-open');
+    backdrop.classList.remove('is-open');
+    openBtn.focus();
+  };
+ </script>
+</body>
