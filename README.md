@@ -29,7 +29,7 @@ Perfect for modals, dialogs, or any interactive area requiring strict focus cont
 ## Installation
 
 ```sh
-npm install tab-trap
+npm i focus-trap-a11y
 ```
 
 ## Import
@@ -38,9 +38,6 @@ npm install tab-trap
 
 import 'tab-trap/dist/index.js';
 
-or 
-
-import { FocusTrap } from 'focus-trap-a11y';
 
 ```
 

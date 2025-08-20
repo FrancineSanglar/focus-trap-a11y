@@ -1,63 +1,194 @@
 <head>
   <script type="module" src="../dist/index.js"></script>
 </head>
+
 <body>
-<button id="open-modal" onclick="openModal()">Open Modal</button>
+  <h1>Focus Trap Demo</h1>
 
-<div id="modal-backdrop" class="modal-backdrop" onclick="closeModal()"></div>
+  <p style="font-size: 18px;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, ipsum nec ornare viverra, massa tellus
+    tristique justo, a viverra odio eros vel arcu. Duis vel enim tincidunt, tristique mi at, semper justo. Donec ac
+    velit consequat, consectetur sem id, luctus nulla. Phasellus ullamcorper non dui porttitor rhoncus. Suspendisse
+    semper sollicitudin erat, ac consequat erat. Vivamus quam arcu, ultrices id est ut, rutrum vehicula odio. Sed
+    lobortis elementum quam, ut sollicitudin diam vulputate ut. Aenean convallis massa eu nisi porta semper. Nam
+    imperdiet dui augue, ut porttitor leo vulputate nec. Nunc feugiat aliquet nisl quis maximus.
 
-<focus-trap>
-  <div id="modal-container" class="modal-container">
-    <h2>Example Modal</h2>
-    <p>Modal is Open</p>
-    <input type="text" placeholder="Your name" />
-    <button>Save</button>
-    <button id="close-modal" onclick="closeModal()">Close</button>
-  </div>
-</focus-trap>
+    Ut non justo nec velit fringilla convallis eu fringilla erat. Fusce magna diam, dapibus et malesuada vel, eleifend
+    id leo. Duis porttitor enim imperdiet lorem facilisis molestie. Quisque faucibus odio nunc. Aenean convallis tempus
+    libero, eu scelerisque mauris pretium ut. Ut imperdiet ligula vel nisl tempor scelerisque. Sed vitae interdum enim.
+    Duis lobortis, tellus vel posuere porta, ligula eros eleifend urna, in dapibus lectus neque vel quam. Etiam varius
+    nibh sed nibh ultricies, lacinia semper dui iaculis.
 
-<style>
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.5);
-    z-index: 10;
-    display: none;
-  }
-  .modal-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
-    z-index: 11;
-    min-width: 300px;
-    display: none;
-  }
-  .is-open {
-    display: block !important;
-  }
- </style>
-<script>
-  const openModal = () => {
-    const modal = document.getElementById('modal-container');
-    const backdrop = document.getElementById('modal-backdrop');
-    modal.classList.add('is-open');
-    backdrop.classList.add('is-open');
-  };
-  const closeModal = () => {
-    const modal = document.getElementById('modal-container');
-    const backdrop = document.getElementById('modal-backdrop');
-    const openBtn = document.getElementById('open-modal');
-    modal.classList.remove('is-open');
-    backdrop.classList.remove('is-open');
-    openBtn.focus();
-  };
- </script>
+    Maecenas aliquam fermentum feugiat. Sed pharetra, orci sed lobortis ultricies, ante libero tempor elit, ut finibus
+    diam eros quis odio. Proin aliquet ac augue eu mollis. Maecenas ullamcorper urna quis dolor fermentum congue. Nulla
+    facilisi. Ut at posuere elit. Donec ut eros et libero vestibulum luctus at id nisl. Nunc id erat non elit
+    pellentesque semper ac ut mi. Donec id libero sodales, luctus purus id, blandit ex.
+
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Donec
+    pharetra nunc sit amet lacus tempus finibus at vitae sem. Vivamus tempor nunc nec nunc varius bibendum. Ut nec lorem
+    et velit sagittis suscipit. Fusce efficitur nec odio vel viverra. Sed id auctor arcu. Curabitur commodo pulvinar
+    massa ut cursus. Nam interdum, nisi id suscipit dictum, dolor nisl vestibulum sem, nec placerat urna lacus nec
+    justo. Donec placerat ornare arcu, ac venenatis dui imperdiet et.
+
+    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam viverra
+    placerat urna et dapibus. Maecenas vitae nibh neque. Aliquam volutpat pellentesque nisl in viverra. Cras finibus
+    lectus nec est porta mattis. Maecenas dapibus odio est, nec venenatis dolor interdum et. Donec maximus consectetur
+    orci, ac sodales eros ullamcorper eu. Vestibulum imperdiet nisl quis accumsan vulputate.
+  </p>
+
+  <button id="open-modal" onclick="openModal()">Open Modal</button>
+
+  <div id="modal-backdrop" class="modal-backdrop" onclick="closeModal()"></div>
+
+  <h2>
+    ac sodales eros ullamcorper eu. Vestibulum imperdiet nisl quis accumsan vulputate.
+  </h2>
+
+  <p style="font-size: 18px;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, ipsum nec ornare viverra, massa tellus
+    tristique justo, a viverra odio eros vel arcu. Duis vel enim tincidunt, tristique mi at, semper justo. Donec ac
+    velit consequat, consectetur sem id, luctus nulla. Phasellus ullamcorper non dui porttitor rhoncus. Suspendisse
+    semper sollicitudin erat, ac consequat erat. Vivamus quam arcu, ultrices id est ut, rutrum vehicula odio. Sed
+    lobortis elementum quam, ut sollicitudin diam vulputate ut. Aenean convallis massa eu nisi porta semper. Nam
+    imperdiet dui augue, ut porttitor leo vulputate nec. Nunc feugiat aliquet nisl quis maximus.
+
+    Ut non justo nec velit fringilla convallis eu fringilla erat. Fusce magna diam, dapibus et malesuada vel, eleifend
+    id leo. Duis porttitor enim imperdiet lorem facilisis molestie. Quisque faucibus odio nunc. Aenean convallis tempus
+    libero, eu scelerisque mauris pretium ut. Ut imperdiet ligula vel nisl tempor scelerisque. Sed vitae interdum enim.
+    Duis lobortis, tellus vel posuere porta, ligula eros eleifend urna, in dapibus lectus neque vel quam. Etiam varius
+    nibh sed nibh ultricies, lacinia semper dui iaculis.
+
+    Maecenas aliquam fermentum feugiat. Sed pharetra, orci sed lobortis ultricies, ante libero tempor elit, ut finibus
+    diam eros quis odio. Proin aliquet ac augue eu mollis. Maecenas ullamcorper urna quis dolor fermentum congue. Nulla
+    facilisi. Ut at posuere elit. Donec ut eros et libero vestibulum luctus at id nisl. Nunc id erat non elit
+    pellentesque semper ac ut mi. Donec id libero sodales, luctus purus id, blandit ex.
+
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Donec
+    pharetra nunc sit amet lacus tempus finibus at vitae sem. Vivamus tempor nunc nec nunc varius bibendum. Ut nec lorem
+    et velit sagittis suscipit. Fusce efficitur nec odio vel viverra. Sed id auctor arcu. Curabitur commodo pulvinar
+    massa ut cursus. Nam interdum, nisi id suscipit dictum, dolor nisl vestibulum sem, nec placerat urna lacus nec
+    justo. Donec placerat ornare arcu, ac venenatis dui imperdiet et.
+
+    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam viverra
+    placerat urna et dapibus. Maecenas vitae nibh neque. Aliquam volutpat pellentesque nisl in viverra. Cras finibus
+    lectus nec est porta mattis. Maecenas dapibus odio est, nec venenatis dolor interdum et. Donec maximus consectetur
+    orci,</p>
+
+  <p style="font-size: 18px;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, ipsum nec ornare viverra, massa tellus
+    tristique justo, a viverra odio eros vel arcu. Duis vel enim tincidunt, tristique mi at, semper justo. Donec ac
+    velit consequat, consectetur sem id, luctus nulla. Phasellus ullamcorper non dui porttitor rhoncus. Suspendisse
+    semper sollicitudin erat, ac consequat erat. Vivamus quam arcu, ultrices id est ut, rutrum vehicula odio. Sed
+    lobortis elementum quam, ut sollicitudin diam vulputate ut. Aenean convallis massa eu nisi porta semper. Nam
+    imperdiet dui augue, ut porttitor leo vulputate nec. Nunc feugiat aliquet nisl quis maximus.
+
+    Ut non justo nec velit fringilla convallis eu fringilla erat. Fusce magna diam, dapibus et malesuada vel, eleifend
+    id leo. Duis porttitor enim imperdiet lorem facilisis molestie. Quisque faucibus odio nunc. Aenean convallis tempus
+    libero, eu scelerisque mauris pretium ut. Ut imperdiet ligula vel nisl tempor scelerisque. Sed vitae interdum enim.
+    Duis lobortis, tellus vel posuere porta, ligula eros eleifend urna, in dapibus lectus neque vel quam. Etiam varius
+    nibh sed nibh ultricies, lacinia semper dui iaculis.
+
+    Maecenas aliquam fermentum feugiat. Sed pharetra, orci sed lobortis ultricies, ante libero tempor elit, ut finibus
+    diam eros quis odio. Proin aliquet ac augue eu mollis. Maecenas ullamcorper urna quis dolor fermentum congue. Nulla
+    facilisi. Ut at posuere elit. Donec ut eros et libero vestibulum luctus at id nisl. Nunc id erat non elit
+    pellentesque semper ac ut mi. Donec id libero sodales, luctus purus id, blandit ex.
+
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Donec
+    pharetra nunc sit amet lacus tempus finibus at vitae sem. Vivamus tempor nunc nec nunc varius bibendum. Ut nec lorem
+    et velit sagittis suscipit. Fusce efficitur nec odio vel viverra. Sed id auctor arcu. Curabitur commodo pulvinar
+    massa ut cursus. Nam interdum, nisi id suscipit dictum, dolor nisl vestibulum sem, nec placerat urna lacus nec
+    justo. Donec placerat ornare arcu, ac venenatis dui imperdiet et.
+
+    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam viverra
+    placerat urna et dapibus. Maecenas vitae nibh neque. Aliquam volutpat pellentesque nisl in viverra. Cras finibus
+    lectus nec est porta mattis. Maecenas dapibus odio est, nec venenatis dolor interdum et. Donec maximus consectetur
+    orci, ac sodales eros ullamcorper eu. Vestibulum imperdiet nisl quis accumsan vulputate.
+  </p>
+
+  <p style="font-size: 18px;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, ipsum nec ornare viverra, massa tellus
+    tristique justo, a viverra odio eros vel arcu. Duis vel enim tincidunt, tristique mi at, semper justo. Donec ac
+    velit consequat, consectetur sem id, luctus nulla. Phasellus ullamcorper non dui porttitor rhoncus. Suspendisse
+    semper sollicitudin erat, ac consequat erat. Vivamus quam arcu, ultrices id est ut, rutrum vehicula odio. Sed
+    lobortis elementum quam, ut sollicitudin diam vulputate ut. Aenean convallis massa eu nisi porta semper. Nam
+    imperdiet dui augue, ut porttitor leo vulputate nec. Nunc feugiat aliquet nisl quis maximus.
+
+    Ut non justo nec velit fringilla convallis eu fringilla erat. Fusce magna diam, dapibus et malesuada vel, eleifend
+    id leo. Duis porttitor enim imperdiet lorem facilisis molestie. Quisque faucibus odio nunc. Aenean convallis tempus
+    libero, eu scelerisque mauris pretium ut. Ut imperdiet ligula vel nisl tempor scelerisque. Sed vitae interdum enim.
+    Duis lobortis, tellus vel posuere porta, ligula eros eleifend urna, in dapibus lectus neque vel quam. Etiam varius
+    nibh sed nibh ultricies, lacinia semper dui iaculis.
+
+    Maecenas aliquam fermentum feugiat. Sed pharetra, orci sed lobortis ultricies, ante libero tempor elit, ut finibus
+    diam eros quis odio. Proin aliquet ac augue eu mollis. Maecenas ullamcorper urna quis dolor fermentum congue. Nulla
+    facilisi. Ut at posuere elit. Donec ut eros et libero vestibulum luctus at id nisl. Nunc id erat non elit
+    pellentesque semper ac ut mi. Donec id libero sodales, luctus purus id, blandit ex.
+
+    Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla facilisi. Donec
+    pharetra nunc sit amet lacus tempus finibus at vitae sem. Vivamus tempor nunc nec nunc varius bibendum. Ut nec lorem
+    et velit sagittis suscipit. Fusce efficitur nec odio vel viverra. Sed id auctor arcu. Curabitur commodo pulvinar
+    massa ut cursus. Nam interdum, nisi id suscipit dictum, dolor nisl vestibulum sem, nec placerat urna lacus nec
+    justo. Donec placerat ornare arcu, ac venenatis dui imperdiet et.
+
+    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam viverra
+    placerat urna et dapibus. Maecenas vitae nibh neque. Aliquam volutpat pellentesque nisl in viverra. Cras finibus
+    lectus nec est porta mattis. Maecenas dapibus odio est, nec venenatis dolor interdum et. Donec maximus consectetur
+    orci, ac sodales eros ullamcorper eu. Vestibulum imperdiet nisl quis accumsan vulputate.
+  </p>
+
+  <focus-trap>
+    <div id="modal-container" class="modal-container">
+      <h2>Example Modal</h2>
+      <p>Modal is Open</p>
+      <input type="text" placeholder="Your name" />
+      <button>Save</button>
+      <button id="close-modal" onclick="closeModal()">Close</button>
+    </div>
+  </focus-trap>
+
+  <style>
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 10;
+      display: none;
+    }
+
+    .modal-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+      z-index: 11;
+      min-width: 300px;
+      display: none;
+    }
+
+    .is-open {
+      display: block !important;
+    }
+  </style>
+  <script>
+    const openModal = () => {
+      const modal = document.getElementById('modal-container');
+      const backdrop = document.getElementById('modal-backdrop');
+      modal.classList.add('is-open');
+      backdrop.classList.add('is-open');
+    };
+    const closeModal = () => {
+      const modal = document.getElementById('modal-container');
+      const backdrop = document.getElementById('modal-backdrop');
+      const openBtn = document.getElementById('open-modal');
+      modal.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      openBtn.focus();
+    };
+  </script>
 </body>
