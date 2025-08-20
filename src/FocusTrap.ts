@@ -8,7 +8,7 @@ const getFocusableElements = (container: Element): HTMLElement[] => {
     'a[href]',
     'button',
     'textarea',
-    'input',
+    'input:not([type="hidden"])',
     'select',
     '[tabindex]:not([tabindex="-1"])'
   ].join(', ')
@@ -62,11 +62,33 @@ const unlockBodyScroll = () => {
   originalBodyOverflow = null
 }
 
-export class FocusTrap extends FocusTrapBase {
+class FocusTrap extends FocusTrapBase {
   private focusableElements: HTMLElement[] = []
   private _isVisible = false
   private _hiddenSiblings: HTMLElement[] = []
   private observer?: MutationObserver
+
+  private hideSiblings = () => {
+    if (!isClient) return
+    const parent = this.closest('[data-focus-scope]') || this.parentElement || document.body
+    const siblings = Array.from(parent.children).filter(
+      (el): el is HTMLElement => el !== this && el instanceof HTMLElement
+    )
+    siblings.forEach(el => {
+      if (!el.hasAttribute('aria-hidden')) {
+        el.setAttribute('aria-hidden', 'true')
+        this._hiddenSiblings.push(el)
+      }
+    })
+  }
+
+  private restoreSiblings = () => {
+    if (!isClient) return
+    this._hiddenSiblings.forEach(el => {
+      el.removeAttribute('aria-hidden')
+    })
+    this._hiddenSiblings = []
+  }
 
   connectedCallback() {
     if (!isClient) return
@@ -75,7 +97,7 @@ export class FocusTrap extends FocusTrapBase {
       this.setAttribute('tabindex', '-1')
     }
 
-    this.addEventListener('keydown', this.onKeyDown)
+    this.addEventListener('keydown', this.onKeyDown, { capture: true })
     this.addEventListener('focusin', this.onFocusIn)
 
     this.observer = new MutationObserver(() => {
@@ -134,7 +156,6 @@ export class FocusTrap extends FocusTrapBase {
   private onFocusIn = (event: FocusEvent) => {
     if (!isClient) return
 
-    // Se o novo elemento focado não está dentro do trap
     if (!this.contains(event.target as Node)) {
       const first = getFocusableElements(this)[0]
       if (first) {
@@ -148,7 +169,6 @@ export class FocusTrap extends FocusTrapBase {
     if (!isClient) return
     const active = event.target as HTMLElement
     if (!this.contains(active)) return
-
 
     const isTab = event.key === 'Tab'
     const isArrow = ['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(event.key)
@@ -218,27 +238,7 @@ export class FocusTrap extends FocusTrapBase {
     event.preventDefault()
   }
 
-  private hideSiblings = () => {
-    if (!isClient) return
-    const parent = this.closest('[data-focus-scope]') || this.parentElement || document.body
-    const siblings = Array.from(parent.children).filter(
-      (el): el is HTMLElement => el !== this && el instanceof HTMLElement
-    )
-    siblings.forEach(el => {
-      if (!el.hasAttribute('aria-hidden')) {
-        el.setAttribute('aria-hidden', 'true')
-        this._hiddenSiblings.push(el)
-      }
-    })
-  }
-
-  private restoreSiblings = () => {
-    if (!isClient) return
-    this._hiddenSiblings.forEach(el => {
-      el.removeAttribute('aria-hidden')
-    })
-    this._hiddenSiblings = []
-  }
+  
 }
 
 if (isClient) {
